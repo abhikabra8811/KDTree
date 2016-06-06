@@ -34,9 +34,9 @@ bool KDTree<T>::nearestNeighbor(const Point<T>& input_pt, int & index, T & dista
 	if (root_ == nullptr)
 		return false;
 	distance = numeric_limits<T>::max();
-	//root_->nearestNeighbor(input_pt, index, distance);
-	shared_ptr<Base_Node<T>> neighbour = nullptr;
-	root_->nearestNeighbor(input_pt, neighbour, distance);
+	root_->nearestNeighbor(input_pt, index, distance);
+	//shared_ptr<Base_Node<T>> neighbour = nullptr;
+	//root_->nearestNeighbor(input_pt, neighbour, distance);
 	return true;
 }
 
@@ -46,6 +46,27 @@ KDTree<T> KDTree<T>::makeTree(vector<Point<T>> list_points){
 		return KDTree(make_shared<Split_Node<T>>(list_points, 0));
 	}
 	return KDTree(nullptr);
+}
+
+template<typename T>
+KDTree<T> KDTree<T>::build_kdtree(const string & fname){
+	auto input_pts = Input_Interpreter<float>::readInputCSV(fname);
+	return KDTree<float>::makeTree(input_pts);
+}
+
+template<typename T>
+void KDTree<T>::query_kdtree(const KDTree& tree, const string & query_file, const string & output_file){
+	auto query_pts = Input_Interpreter<float>::readInputCSV(query_file);
+	vector<pair<int, float>> vec_result;
+	//vec_result.reserve(input_pts.size());
+	int index;
+	float min_dist = 0.0;
+	for (const auto& pt : query_pts) {
+		tree.nearestNeighbor(pt, index, min_dist);
+		vec_result.emplace_back(pair<int, float>(index, min_dist));
+	}
+
+	Input_Interpreter<float>::writeToCSV(output_file, vec_result);
 }
 
 #endif // !_KDTree_cpp

@@ -1,3 +1,7 @@
+/*
+1. Reads input CSV file
+2. Writes output to CSV file
+*/
 #ifndef _Input_Interpreter_H_
 #define _Input_Interpreter_H_
 
@@ -20,7 +24,6 @@ public:
 	static vector<Point<T>> readInputCSV(const string& fname);
 	static void writeToCSV(const string& fname, const vector<pair<int, T>>& result);
 };
-
 
 #include "Input_Interpreter.cpp"
 

@@ -1,5 +1,6 @@
 #ifndef  _Input_Interpreter_cpp
 #define _Input_Interpreter_cpp
+
 #include "Input_Interpreter.h"
 
 template <typename T>

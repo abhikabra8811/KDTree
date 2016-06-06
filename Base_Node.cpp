@@ -38,14 +38,10 @@ Point<T> Base_Node<T>::getPoint() const{
 }
 
 template<typename T>
-void Base_Node<T>::nearestNeighbor(const Point<T>& input_pt, shared_ptr<Base_Node<T>>& best_neighbor, T& best_dist){
-	return;
-}
+void Base_Node<T>::nearestNeighbor(const Point<T>& input_pt, shared_ptr<Base_Node<T>>& best_neighbor, T& best_dist){}
 
 template<typename T>
-void Base_Node<T>::nearestNeighbor(const Point<T>& input_pt, int & index, T & distance) const {
-	return;
-}
+void Base_Node<T>::nearestNeighbor(const Point<T>& input_pt, int & index, T & distance)  {}
 
 #endif // !_Base_Node_cpp
 
