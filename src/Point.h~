@@ -22,15 +22,19 @@ public:
 	
 	//constructor with initializer_list	
 	Point(const initializer_list<T>& input_list);
-
-	Point(const vector<T>& vec,int index = 0);
+	Point(const vector<T>& vec,int index = -1);
 
 	~Point() = default;	
 
 	T& operator[](const size_t index);
 	const T& operator[](const size_t index) const;
+	//return vector of feature values	
 	vector<T> getFeautureVector() const;
+	
+	//returns size of feature vector, basically retuns number of dimensions
 	size_t getSize() const;
+	
+	//return index of this point in input list of points from csv file
 	size_t getIndex() const;
 	T distance(const Point<T>& other) const;
 };
