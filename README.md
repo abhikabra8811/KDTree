@@ -5,17 +5,16 @@ This file describes:
 3. How to run
 
 1. Director structure:
-	data/
-	--sample_data.csv
-	--query_data.csv
-	--result.csv
-	(these locations can be specified from commandline while running application)
-	Obj/
-	--all object files
-	src/
-	--*.cpp, *.h
-	KDTREE.o
-	make
+ 	- data/
+ 		- sample_data.csv
+ 		- query_data.csv
+ 		- result.csv(these locations can be specified from commandline while running application)
+	- Obj/
+		- all object files
+	- src/
+		- *.cpp, *.h
+	- KDTREE.o
+	- make
 
 2. Pre-requisites:	
 	- OS version:
